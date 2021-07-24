@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Api</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <section>
+
+        <div class="about">
+            <h1>Today's News</h1>
+            {{!-- <div class="time"></div> --}}
+        </div>
+        {{!-- display the api content --}}
+        <div class="container">
+            {{!-- <div class="wrapper"> --}}
+                {{!-- img, title, description --}}
+                {{!-- </div> --}}
+        </div>
+
+    </section>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        const decodedJson = decodeURIComponent("{{{articles}}}");
+        const data = JSON.parse(decodedJson);
+        const arrArticle = data["articles"];
+
+        $(document).ready(() => {
+            for (let i = 0; i < arrArticle.length; i++) {
+                if (arrArticle[i].source.name.length == 0 || arrArticle[i].urlToImage.length == 0 ||
+                    arrArticle[i].title.length == 0 || arrArticle[i].description.length == 0) {
+                    continue;
+                }
+
+                let wrapper =
+                    `<div class="wrapper">
+                            <h3 class="name">${arrArticle[i].source.name}</h3>
+                            <img src="${arrArticle[i].urlToImage}">
+                            <a href="${arrArticle[i].url}" class="title" target="_blank">${arrArticle[i].title}</a>
+                            <p class="description">${arrArticle[i].description}</p>
+                        </div>`;
+                $('.container').append(wrapper);
+            }
+
+            /*function updateTime() {
+                let date = new Date();
+                let hr = date.getHours();
+                let min = date.getMinutes();
+                if (hr > 12) hr -= 12;
+                date.
+                $(`.time`).html(`${hr} : ${min}`);
+            }
+
+            setInterval(updateTime, 1000);*/
+        });
+    </script>
+</body>
+
+</html>

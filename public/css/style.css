@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css?family=Acme|Lobster|Patua+One|Rubik|Sniglet");
+
+:root {
+    --Sniglet-font: "Sniglet", cursive;
+    --Rubik: "Rubik", cursive;
+    --Patua: "Patua One", cursive;
+    --Lobster: "lobster", cursive;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* section */
+
+section {
+    background-image: linear-gradient(to bottom, #1c1c1c, #171718, #111114, #0a090f, #000009);
+}
+
+.about {
+    text-align: center;
+}
+
+.about h1 {
+    padding: 2.7rem 1rem;
+    font-size: 3.7rem;
+    font-weight: 300;
+    text-decoration: overline underline;
+    font-family: var(--Sniglet-font);
+    color: #e1b61d;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto 0 auto;
+    /* border: 2px solid; */
+}
+
+
+/* wrapper  */
+
+.container .wrapper {
+    width: 20rem;
+    height: 30rem;
+    margin: 2rem 1.2rem;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    padding: 1rem 1.1rem;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 3px 3px 20px 0px rgb(153 148 148 / 20%);
+    border-radius: .4rem;
+    background-color: #242423;
+    color: whitesmoke;
+
+    transition: all .7s;
+}
+
+.container .wrapper:hover {
+    cursor: pointer;
+    transform: translateY(-1rem);
+}
+
+.container .wrapper .name {
+    margin-bottom: 1rem;
+    font-family: var(--Patua);
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.container .wrapper img {
+    width: 100%;
+    height: 40%;
+    opacity: 0.6;
+    border: 2px solid;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+.container .wrapper .title {
+    font-family: var(--Patua);
+    padding: .6rem 0rem;
+    color: blue;
+    text-decoration: none;
+    font-weight: 200;
+}
+
+.container .wrapper .title:visited {
+    color: purple;
+}
+
+.container .wrapper .title:hover {
+    text-decoration: underline;
+}
+
+.container .wrapper .description {
+    margin-top: .3rem;
+    font-family: var(--Rubik);
+    color: rgba(245, 245, 245, 0.712);
+}
